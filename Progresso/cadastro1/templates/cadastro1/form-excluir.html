@@ -1,0 +1,23 @@
+{% extends 'paginas/indexModelo.html' %}
+
+{% load static %}
+
+{% block intro%}
+{%endblock%}
+
+{% block conteudo %}
+    <h3>Excluir Cadastros</h3>
+    <p>Confirme para excluir!</p>
+
+    <form action="" method="post">
+        <p>
+            Deseja excluir o registo: {{ object }}?
+        </p>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-danger">Excluir</button>
+    </form>
+{% endblock %}
+
