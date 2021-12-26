@@ -3,68 +3,91 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from .models import Atividade, Campo, Status, Campus, Classe
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
-class CampoCreate(CreateView):
+class CampoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('loginView')
     model = Campo
     fields = ['nome', 'descricao']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-campo')
 
-class AtividadeCreate(CreateView):
+
+class AtividadeCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('loginView')
     model = Atividade
     fields = ['numero', 'descricao', 'pontos', 'detalhes', 'campo']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-atividade')
 
-class StatusCreate(CreateView):
+
+class StatusCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('loginView')
     model = Status
     fields = ['nome', 'descricao']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('inicio')
 
-class CampusCreate(CreateView):
+
+class CampusCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('loginView')
     model = Campus
     fields = ['cidade', 'endereco', 'telefone']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('inicio')
 
-class ClasseCreate(CreateView):
+
+class ClasseCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('loginView')
     model = Classe
     fields = ['nome', 'nivel', 'descricao']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('inicio')
 
-############## UPDATE ############## 
-class CampoUpdate(UpdateView):
+
+############## UPDATE ##############
+class CampoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('loginView')
     model = Campo
     fields = ['nome', 'descricao']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-campo')
 
-class AtividadeUpdate(UpdateView):
+
+class AtividadeUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('loginView')
     model = Atividade
     fields = ['numero', 'descricao', 'pontos', 'detalhes', 'campo']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-atividade')
 
-############## DELETE ############## 
-class CampoDelete(DeleteView):
+
+############## DELETE ##############
+class CampoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('loginView')
     model = Campo
     template_name = 'cadastro1/form-excluir.html'
     success_url = reverse_lazy('listar-campo')
 
-class AtividadeDelete(DeleteView):
+
+class AtividadeDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('loginView')
     model = Atividade
     template_name = 'cadastro1/form-excluir.html'
     success_url = reverse_lazy('listar-atividade')
 
-############## LISTA ############## 
-class CampoLista(ListView):
+
+############## LISTA ##############
+class CampoLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('loginView')
     model = Campo
     template_name = 'cadastro1/lista/campo.html'
 
-class AtividadeLista(ListView):
+
+class AtividadeLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('loginView')
     model = Atividade
     template_name = 'cadastro1/lista/atividade.html'

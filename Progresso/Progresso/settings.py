@@ -124,7 +124,7 @@ STATICFILES_DIRS = [
 
 # Configurações de autenticação
 LOGIN_REDIRECT_URL = 'inicio'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'loginView'
 LOGIN_URL = 'login'
 
 # Default primary key field type
