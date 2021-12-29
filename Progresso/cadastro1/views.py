@@ -17,6 +17,11 @@ class CampoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-campo')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = "Cadastro de Campos"
+        return context
+
 
 class AtividadeCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('loginView')
@@ -25,6 +30,11 @@ class AtividadeCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     fields = ['numero', 'descricao', 'pontos', 'detalhes', 'campo']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-atividade')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = "Cadastro de Atividades"
+        return context
 
 
 class StatusCreate(LoginRequiredMixin, CreateView):
@@ -60,6 +70,11 @@ class CampoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-campo')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = "Edtitar Campo"
+        return context
+
 
 class AtividadeUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('loginView')
@@ -68,6 +83,11 @@ class AtividadeUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     fields = ['numero', 'descricao', 'pontos', 'detalhes', 'campo']
     template_name = 'cadastro1/form.html'
     success_url = reverse_lazy('listar-atividade')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = "Edtitar Atividade"
+        return context
 
 
 ############## DELETE ##############
