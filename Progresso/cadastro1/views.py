@@ -20,6 +20,7 @@ class CampoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo'] = "Cadastro de Campos"
+        context['botao'] = "Cadastrar"
         return context
 
 
@@ -34,6 +35,7 @@ class AtividadeCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo'] = "Cadastro de Atividades"
+        context['botao'] = "Cadastar"
         return context
 
 
@@ -73,6 +75,7 @@ class CampoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo'] = "Edtitar Campo"
+        context['botao'] = "Salvar"
         return context
 
 
@@ -87,6 +90,7 @@ class AtividadeUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo'] = "Edtitar Atividade"
+        context['botao'] = "Salvar"
         return context
 
 
