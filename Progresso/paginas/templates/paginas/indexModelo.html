@@ -35,7 +35,6 @@
             }
           }
     </style>
-
     <!-- Custom styles for this template -->
     <link href="{% static 'css/pricing.css' %}" rel="stylesheet">
 </head>
@@ -68,26 +67,23 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item btn-light" href="#">Perfil</a></li>
             <li><a class="dropdown-item btn-light" href="#">Alterar Senha</a></li>
-            <li><a class="dropdown-item btn-light" href="{% url 'logoutView' %}">Sair</a></li>
+            <li><a class="dropdown-item btn-light" href="{% url 'logoutView' %}">
+                <img src="{% static 'img/icones/baseline_logout_black_24dp.png' %}">
+                Sair
+            </a></li>
           </ul>
       </div>
     {% else %}
       <nav class="my-2 my-md-0 mr-md-3">
-          <a class="btn text-dark btn-light" href="{% url 'cadUser' %}">Registrar</a>
+          <a class="btn text-dark btn-light" href="{% url 'cadUser' %}">
+              <img src="{% static 'img/icones/baseline_fingerprint_black_24dp.png' %}">
+              Registrar
+          </a>
       </nav>
       <a class="btn btn-outline-primary" href="{% url 'loginView' %}">Entrar</a>
     {% endif %}
     {% endblock %}   
   </div>
-
-  <!--
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      {% block intro%}
-      <h1 class="display-4">Pricing</h1>
-      <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
-      {% endblock %}
-  </div>
-  -->
 
 <div class="container">
 {% block container %}
