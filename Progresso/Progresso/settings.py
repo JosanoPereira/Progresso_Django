@@ -81,13 +81,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'database': 'ProgressoDB',
-        'user': 'root',
-        'password': 'josanojp25',
-        'default-character-set': 'utf8'
-    }
 }
 
 # Password validation
