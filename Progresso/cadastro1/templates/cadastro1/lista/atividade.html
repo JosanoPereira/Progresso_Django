@@ -6,8 +6,10 @@
 {% endblock %}
 
 {% block conteudo %}
-<h3>Lista de Atividades Registadas</h3>
-<a href="{% url 'atividade-cadastro' %}" class="btn btn-primary btn-sm">Adicionar Atividade</a>
+<div class="d-flex justify-content-between">
+    <h3>Lista de Atividades Registadas</h3>
+    <a href="{% url 'atividade-cadastro' %}" class="btn btn-primary btn-sm">Adicionar Atividade</a>
+</div>
 <br>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -30,8 +32,12 @@
             <td>{{ atividade.detalhes }}</td>
             <td>{{ atividade.campo }}</td>
             <td>
-                <a href="{% url 'editar-atividade' atividade.pk %}" class="btn btn-warning btn-sm" title="Editar">E</a>
-                <a href="{% url 'excluir-atividade' atividade.pk %}" class="btn btn-danger btn-sm" title="Excluir">X</a>
+                <a href="{% url 'editar-atividade' atividade.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <img src="{% static 'img/icones/baseline_edit_note_black_24dp.png' %}">
+                </a>
+                <a href="{% url 'excluir-atividade' atividade.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <img src="{% static 'img/icones/baseline_delete_forever_black_24dp.png' %}">
+                </a>
             </td>
         </tr>
         {% empty %}
