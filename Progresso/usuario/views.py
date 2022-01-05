@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from django.shortcuts import get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User, Group
@@ -6,6 +7,13 @@ from django.urls import reverse_lazy
 from .models import Perfil
 
 
+=======
+from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User, Group
+from .form import UsuarioForm
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
+>>>>>>> Stashed changes
 # Create your views here.
 
 
@@ -15,8 +23,13 @@ class UsuarioCreate(CreateView):
     success_url = reverse_lazy('loginView')
 
     def form_valid(self, form):
+<<<<<<< Updated upstream
         grupo = get_object_or_404(Group, name="Docente")
         url = super().form_valid(form)
+=======
+        grupo = get_object_or_404(Group, name='Docente')
+        url =super().form_valid(form)
+>>>>>>> Stashed changes
         self.object.groups.add(grupo)
         self.object.save()
         return url
